@@ -1,0 +1,27 @@
+<div class="expense media">
+	<h3>{{ expsense.title|safe }}</h3>
+
+<h4>Cost: {{ expense.cost_html|safe }}</h4>
+
+	<div class="media-body">
+		<strong>{{ expense.user.username }}</strong>
+		<h5 class="media-heading">
+			<span class="username"><a href="{% url 'expense:for_user' username=expense.user.username %}">@{{ expense.user.username }}</a></span>
+			<time class="time"><a href="{% url 'expenses:single' username=expense.user.username pk=expense.pk %}">{{ expense.created_at }}</a></time>
+			{% if expense.group %}
+			<span class="group-name">in <a href="#">{{ expense.group.name }}</a></span>
+			{% endif %}
+		</h5>
+
+
+
+    		<div class="media-footer">
+			{% if user.is_authenticated and expense.user == user and not hide_delete %}
+				<a href="{% url 'expenses:delete' pk=expense.pk %}" title="delete" class="btn btn-simple">
+					<span class="glyphicon glyphicon-remove text-danger" aria-hidden="true"></span>
+					<span class="text-danger icon-label">Delete</span>
+				</a>
+			{% endif %}
+		</div>
+	</div>
+</div>

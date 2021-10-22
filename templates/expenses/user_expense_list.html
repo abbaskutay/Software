@@ -1,0 +1,16 @@
+{% extends "expenses/expense_base.html" %}
+
+{% block preexpense %}
+<div class="col-md-4">
+	<h1>@{{ expense_user.username }}</h1>
+	<p>Expense History</p>
+</div>
+{% endblock %}
+
+{% block expense_content %}
+<div class="col-md-8">
+	{% for post in post_list %}
+		{% include "expenses/_expense.html" %}
+	{% endfor %}
+</div>
+{% endblock %}

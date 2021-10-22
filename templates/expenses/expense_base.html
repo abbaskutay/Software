@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="expenses-page">
+	<div class="container">
+		<div class="row">
+			{% block preexpense%}{% endblock %}
+			{% block expense_content %}{% endblock %}
+			{% block expense_post%}{% endblock %}
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+
+
+
+

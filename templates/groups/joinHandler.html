@@ -1,0 +1,14 @@
+{% extends "groups/group_base.html" %}
+{% load bootstrap3 %}
+
+{% block group_content %}
+<h4>Please Enter the key in order to join {{ slug }}</h4>
+
+     <p>{{ message }}</p>
+
+    <form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" class="btn btn-lg btn-fill btn-warning">
+</form>
+{% endblock %}
